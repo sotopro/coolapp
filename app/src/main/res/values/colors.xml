@@ -10,4 +10,8 @@
 
     <color name="primary">#E18AD4</color>
     <color name="secondary">#EFC7E5</color>
+    <color name="night_mode">#D782BA</color>
+    <color name="notification">#E0EFDA</color>
+    <color name="private_account">#EEB1D5</color>
+    <color name="security">#D56AA0</color>
 </resources>
