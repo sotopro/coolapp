@@ -19,4 +19,9 @@
         <item name="colorSwitchThumbNormal">@color/white</item>
         <item name="android:colorForeground">@color/secondary</item>
     </style>
+    <style name="notificationSwitch" parent="Theme.AppCompat.Light">
+        <item name="colorControlActivated">@color/notification</item>
+        <item name="colorSwitchThumbNormal">@color/white</item>
+        <item name="android:colorForeground">@color/secondary</item>
+    </style>
 </resources>
