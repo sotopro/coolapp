@@ -14,5 +14,6 @@
     <color name="notification">#E0EFDA</color>
     <color name="private_account">#EEB1D5</color>
     <color name="security">#D56AA0</color>
+    <color name="cloud_mode">#FF6200EE</color>
     <color name="content_text">#212121</color>
 </resources>

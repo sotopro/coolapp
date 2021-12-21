@@ -4,12 +4,15 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/d_y_h/AndroidStudioProjects/CoolApp/app/src/main/res/drawable/back_button.xml" value="0.22407407407407406" />
+        <entry key="..\:/Users/d_y_h/AndroidStudioProjects/CoolApp/app/src/main/res/drawable/back_button_cloud_mode.xml" value="0.19814814814814816" />
         <entry key="..\:/Users/d_y_h/AndroidStudioProjects/CoolApp/app/src/main/res/drawable/back_button_night_mode.xml" value="0.20185185185185187" />
         <entry key="..\:/Users/d_y_h/AndroidStudioProjects/CoolApp/app/src/main/res/drawable/back_button_notification.xml" value="0.20185185185185187" />
         <entry key="..\:/Users/d_y_h/AndroidStudioProjects/CoolApp/app/src/main/res/drawable/back_button_private_account.xml" value="0.20185185185185187" />
         <entry key="..\:/Users/d_y_h/AndroidStudioProjects/CoolApp/app/src/main/res/drawable/back_button_security.xml" value="0.20185185185185187" />
         <entry key="..\:/Users/d_y_h/AndroidStudioProjects/CoolApp/app/src/main/res/drawable/back_button_white.xml" value="0.20185185185185187" />
         <entry key="..\:/Users/d_y_h/AndroidStudioProjects/CoolApp/app/src/main/res/drawable/ic_baseline_account_circle_24.xml" value="0.19814814814814816" />
+        <entry key="..\:/Users/d_y_h/AndroidStudioProjects/CoolApp/app/src/main/res/drawable/ic_baseline_cloud_upload_24.xml" value="0.19814814814814816" />
+        <entry key="..\:/Users/d_y_h/AndroidStudioProjects/CoolApp/app/src/main/res/drawable/ic_baseline_keyboard_arrow_right_24.xml" value="0.19814814814814816" />
         <entry key="..\:/Users/d_y_h/AndroidStudioProjects/CoolApp/app/src/main/res/drawable/ic_baseline_nights_stay_24.xml" value="0.20185185185185187" />
         <entry key="..\:/Users/d_y_h/AndroidStudioProjects/CoolApp/app/src/main/res/drawable/ic_baseline_notifications_24.xml" value="0.19814814814814816" />
         <entry key="..\:/Users/d_y_h/AndroidStudioProjects/CoolApp/app/src/main/res/drawable/ic_baseline_power_settings_new_24.xml" value="0.20185185185185187" />
