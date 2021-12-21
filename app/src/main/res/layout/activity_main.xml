@@ -91,6 +91,24 @@
                         android:src="@drawable/ic_baseline_nights_stay_24"
                         android:padding="8dp"
                         />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="Night Mode"
+                        android:textColor="@color/content_text"
+                        android:textStyle="bold"
+                        android:layout_toEndOf="@+id/nightModeIcon"
+                        android:layout_marginStart="16dp"
+                        />
+                    <Switch
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:switchMinWidth="50dp"
+                        android:theme="@style/nightModeSwitch"
+                        />
                 </RelativeLayout>
             </LinearLayout>
         </LinearLayout>
