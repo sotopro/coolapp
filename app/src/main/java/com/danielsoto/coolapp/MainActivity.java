@@ -1,11 +1,15 @@
 package com.danielsoto.coolapp;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.core.content.ContextCompat;
+import com.bumptech.glide.Glide;
 
 import android.Manifest;
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.ContentValues;
 import android.content.DialogInterface;
@@ -16,6 +20,8 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
+
 
 public class MainActivity extends AppCompatActivity {
     ImageView set;
@@ -46,11 +52,68 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 pd.setMessage("Updating Profile Picture");
-                profileOrCoverImage = "Image";
+                profileOrCoverImage = "image";
                 showImagePicDialog();
             }
         });
     }
+
+    @Override
+    protected  void onPause(){
+        super.onPause();
+        Glide.with(MainActivity.this).load(imageUri).into(set);
+
+    }
+
+    @Override
+    public  void  onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        if(requestCode == Activity.RESULT_OK){
+            if(requestCode == IMAGE_PICK_GALLERY_REQUEST) {
+                imageUri = data.getData();
+                uploadProfileCoverPhoto(imageUri);
+            }
+            if(requestCode == IMAGE_PICK_CAMERA_REQUEST) {
+                uploadProfileCoverPhoto(imageUri);
+            }
+        }
+
+        super.onActivityResult(requestCode, resultCode, data);
+    }
+
+    @Override
+    public  void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        switch (requestCode) {
+            case CAMERA_REQUEST: {
+                if(grantResults.length > 0) {
+                    boolean cameraAccepted = grantResults[0] == PackageManager.PERMISSION_GRANTED;
+                    boolean writeStorageAccepted = grantResults[1] == PackageManager.PERMISSION_GRANTED;
+                    if(cameraAccepted && writeStorageAccepted){
+                        pickFromCamera();
+                    } else {
+                        Toast.makeText(this, "Please enable camera and storage permission", Toast.LENGTH_LONG).show();
+                    }
+                } else {
+                    Toast.makeText(this, "Something went wrong! try again...", Toast.LENGTH_LONG).show();
+                }
+            }
+            break;
+            case STORAGE_REQUEST: {
+                if(grantResults.length > 0) {
+                    boolean writeStorageAccepted = grantResults[0] == PackageManager.PERMISSION_GRANTED;
+                    if(writeStorageAccepted){
+                        pickFromGallery();
+                    } else {
+                        Toast.makeText(this, "Please enable storage permission", Toast.LENGTH_LONG).show();
+                    }
+                } else {
+                    Toast.makeText(this, "Something went wrong! try again...", Toast.LENGTH_LONG).show();
+                }
+            }
+            break;
+        }
+    }
+
 
     private void showImagePicDialog() {
         String options[] = {"Camera", "Gallery"};
@@ -112,6 +175,13 @@ public class MainActivity extends AppCompatActivity {
         Intent galleryIntent = new Intent(Intent.ACTION_PICK);
         galleryIntent.setType("image/*");
         startActivityForResult(galleryIntent, IMAGE_PICK_GALLERY_REQUEST);
+    }
+
+    private void uploadProfileCoverPhoto(final Uri uri) {
+        pd.show();
+        // function to save in to database {}
+        pd.dismiss();
+        Toast.makeText(MainActivity.this, "Updated Photo", Toast.LENGTH_LONG).show();
     }
 
 }
