@@ -66,13 +66,13 @@ public class MainActivity extends AppCompatActivity {
                         pickFromCamera();
                     }
                 }
-//                else if(which == 1) {
-//                    if(!checkStoragePermission()) {
-//                        requestStoragePermission();
-//                    } else {
-//                        pickFromGallery();
-//                    }
-//                }
+                else if(which == 1) {
+                    if(!checkStoragePermission()) {
+                        requestStoragePermission();
+                    } else {
+                        pickFromGallery();
+                    }
+                }
             }
         });
         builder.create().show();
@@ -85,8 +85,17 @@ public class MainActivity extends AppCompatActivity {
         return result && result1;
     }
 
+    private Boolean checkStoragePermission() {
+        boolean result = ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) == (PackageManager.PERMISSION_GRANTED);
+        return  result;
+    }
+
     private void requestCameraPermission() {
         requestPermissions(cameraPermission, CAMERA_REQUEST);
+    }
+
+    private void requestStoragePermission() {
+        requestPermissions(storagePermission, STORAGE_REQUEST);
     }
 
     private void pickFromCamera() {
@@ -97,6 +106,12 @@ public class MainActivity extends AppCompatActivity {
         Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
         startActivityForResult(cameraIntent, IMAGE_PICK_CAMERA_REQUEST);
+    }
+
+    private void pickFromGallery() {
+        Intent galleryIntent = new Intent(Intent.ACTION_PICK);
+        galleryIntent.setType("image/*");
+        startActivityForResult(galleryIntent, IMAGE_PICK_GALLERY_REQUEST);
     }
 
 }
